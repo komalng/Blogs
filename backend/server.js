@@ -6,7 +6,7 @@ const app = new Hono();
 
 // Middleware
 app.use('*', cors({
-  origin: ['https://blogs-2ce.pages.dev/', 'http://localhost:3000'],
+  origin: ['https://blogs-2ce.pages.dev', 'http://localhost:3000'],
   allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowHeaders: ['Content-Type', 'Authorization'],
 }));
