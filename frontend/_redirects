@@ -1,1 +1,3 @@
+# Handle Vue Router client-side routing
+# Only redirect non-file requests to index.html
 /*    /index.html   200 
