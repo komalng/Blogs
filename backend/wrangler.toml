@@ -1,0 +1,20 @@
+name = "blogs-list-api"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+[env.production]
+name = "blogs-list-api"
+
+[env.staging]
+name = "blogs-list-api-staging"
+
+[[env.production.vars]]
+key = "ENVIRONMENT"
+value = "production"
+
+[[env.staging.vars]]
+key = "ENVIRONMENT"
+value = "staging"
+
+# Add your MongoDB connection string as a secret
+# Run: wrangler secret put MONGODB_URI 
