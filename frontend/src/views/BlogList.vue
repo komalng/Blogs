@@ -90,7 +90,7 @@ export default {
       try {
         this.loading = true
         this.error = null
-        const response = await axios.get('http://localhost:5000/api/blogs')
+        const response = await axios.get(`${import.meta.env.VITE_BACKEND_BASE_URL}blogs`)
         this.blogs = response.data
       } catch (err) {
         this.error = 'Failed to load blogs. Please try again.'

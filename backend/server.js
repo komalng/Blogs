@@ -1,24 +1,22 @@
-const express = require('express');
-const cors = require('cors');
-const dotenv = require('dotenv');
-const blogRoutes = require('./routes/blogRoutes');
-const connectDB = require("./db/connection")
+import { Hono } from 'hono';
+import { cors } from 'hono/cors';
+import { blogRoutes } from './routes/blogRoutesWorker.js';
 
-// Load environment variables
-dotenv.config();
-
-const app = express();
-const PORT = process.env.PORT || 5000;
+const app = new Hono();
 
 // Middleware
-app.use(cors());
-app.use(express.json());
+app.use('*', cors({
+  origin: ['https://your-frontend-domain.pages.dev', 'http://localhost:3000'],
+  allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowHeaders: ['Content-Type', 'Authorization'],
+}));
 
+// Routes
+app.route('/api/blogs', blogRoutes);
 
-app.use('/api/blogs', blogRoutes);
+// Health check
+app.get('/', (c) => {
+  return c.json({ message: 'Blogs API is running!' });
+});
 
-connectDB();
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-}); 
+export default app; 
