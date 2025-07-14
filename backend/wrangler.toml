@@ -16,5 +16,8 @@ value = "production"
 key = "ENVIRONMENT"
 value = "staging"
 
-# Add your MongoDB connection string as a secret
-# Run: wrangler secret put MONGODB_URI 
+
+[[d1_databases]]
+binding = "DB"
+database_name = "my-database"
+database_id = "69714559-17e7-46e1-99f5-51bd7697a443"
