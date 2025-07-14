@@ -99,7 +99,7 @@ export default {
         this.error = null
         const id = this.$route.params.id
         const response = await axios.get(`${import.meta.env.VITE_BACKEND_BASE_URL}blogs/${id}`)
-        this.blog = response.data[0]
+        this.blog = response.data
       } catch (err) {
         this.error = 'Failed to load blog. Please try again.'
         console.error('Error fetching blog:', err)

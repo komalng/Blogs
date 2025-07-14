@@ -20,9 +20,9 @@
     <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       <div 
         v-for="blog in blogs" 
-        :key="blog._id" 
+        :key="blog.id" 
         class="card overflow-hidden cursor-pointer group"
-        @click="viewBlog(blog._id)"
+        @click="viewBlog(blog.id)"
       >
         <div class="relative overflow-hidden">
           <img 
